@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задачи</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Отчет о временных затратах</h1>
+    <button id="logoutButton">Выйти</button>
+
+    <form id="taskForm">
+        <label for="description">Описание задачи:</label>
+        <input type="text" id="description" name="description" required>
+        
+        <label for="timeSpent">Время, затраченное на задачу (чч:мм):</label>
+        <input type="time" id="timeSpent" name="timeSpent" required>
+        
+        <button type="submit">Добавить задачу</button>
+    </form>
+
+    <table id="taskTable">
+        <thead>
+            <tr>
+                <th>Дата выполнения</th>
+                <th>Описание задачи</th>
+                <th>Время, затраченное на задачу</th>
+                <th>Исполнитель</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Задачи будут добавлены сюда -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Общее время:</td>
+                <td id="totalTime">00:00</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script type="module" src="tasks.js"></script>
+</body>
+</html>
