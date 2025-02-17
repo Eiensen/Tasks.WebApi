@@ -13,7 +13,7 @@ document
       if (success) {
         const loginSuccess = await login(email, password);
         if (loginSuccess) {
-          window.location.href = "tasks.html";
+          window.location.href = "../tasks.html";
         }
       }
     } catch (error) {
@@ -31,7 +31,7 @@ document
     try {
       const success = await login(email, password);
       if (success) {
-        window.location.href = "tasks.html";
+        window.location.href = "../tasks.html";
       }
     } catch (error) {
       console.log(error.message);
@@ -41,11 +41,11 @@ document
 document.getElementById("logoutButton")?.addEventListener("click", () => {
   logout();
   console.log("Вы вышли из системы.");
-  window.location.href = "index.html";
+  window.location.href = "../index.html";
 });
 
 if (isAuthenticated()) {
-  window.location.href = "tasks.html";
+  window.location.href = "../tasks.html";
 } else {
   document.getElementById("auth-forms").style.display = "block";
   document.getElementById("logoutButton").style.display = "none";

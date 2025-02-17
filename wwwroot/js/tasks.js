@@ -3,7 +3,7 @@ import { addAuthHeader } from "./utils.js";
 
 if (!isAuthenticated()) {
   console.log("Пользователь не авторизован, перенаправление...");
-  window.location.href = "index.html";
+  window.location.href = "../index.html";
 }
 
 document.getElementById("logoutButton").addEventListener("click", () => {
@@ -54,7 +54,7 @@ const loadTasks = async () => {
 document.getElementById("logoutButton")?.addEventListener("click", () => {
   logout();
   console.log("Вы вышли из системы.");
-  window.location.href = "index.html";
+  window.location.href = "../index.html";
 });
 
 document

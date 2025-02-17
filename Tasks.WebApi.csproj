@@ -1,5 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">  
   <ItemGroup>
+    <None Include="wwwroot\css\styles.css" />
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\js\authHandlers.js" />
+    <None Include="wwwroot\js\authService.js" />
+    <None Include="wwwroot\js\tasks.js" />
+    <None Include="wwwroot\js\utils.js" />
+    <None Include="wwwroot\tasks.html" />
+  </ItemGroup>  
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
