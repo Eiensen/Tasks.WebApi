@@ -1,28 +1,23 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Tasks.WebApi.Context;
 using Tasks.WebApi.Entities;
 using Tasks.WebApi.Models;
+using Tasks.WebApi.Servicies;
 
 namespace Tasks.WebApi.Controllers;
 
 [Authorize]
 [ApiController]
 [Route("api/[controller]")]
-public class TasksController : ControllerBase
+public class TasksController(
+    TaskService service
+    ) : ControllerBase
 {
-    private readonly TaskContext _context;
-
-    public TasksController(TaskContext context)
-    {
-        _context = context;
-    }
-
+   
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TaskGet>>> GetTasks()
     {
-        var tasks = await _context.Tasks.ToListAsync();
+        var tasks = await service.GetAllAsync();
 
         return tasks.Select(x => new TaskGet
         {
@@ -54,8 +49,7 @@ public class TasksController : ControllerBase
             Assignee = User.Identity?.Name ?? ""
         };
 
-        _context.Tasks.Add(newTask);
-        await _context.SaveChangesAsync();
+        await service.CreateAsync(newTask);
 
         return CreatedAtAction(nameof(GetTasks), new { id = newTask.Id }, newTask);
     }
