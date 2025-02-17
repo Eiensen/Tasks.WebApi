@@ -32,7 +32,7 @@ public class TasksController(
     [HttpPost]
     public async Task<ActionResult<TaskGet>> AddTask([FromBody] TaskAdd task)
     {
-        if (task.TaskDate != DateOnly.FromDateTime(DateTime.Today))
+        if (task.TaskDate != DateOnly.FromDateTime(DateTime.UtcNow))
         {
             return BadRequest("Дата должна быть сегодняшней.");
         }
