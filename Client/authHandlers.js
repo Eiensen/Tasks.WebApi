@@ -8,12 +8,11 @@ document.getElementById('registerForm')?.addEventListener('submit', async (event
 
     try {
         const success = await register(email, fullName, password);
-        if (success) {
-            alert('Регистрация прошла успешно!');
+        if (success) {           
             window.location.href = 'tasks.html';
         }
     } catch (error) {
-        alert(error.message);
+        console.log(error.message);
     }
 });
 
@@ -25,17 +24,16 @@ document.getElementById('loginForm')?.addEventListener('submit', async (event) =
     try {
         const success = await login(email, password);
         if (success) {
-            alert('Вход выполнен успешно!');
             window.location.href = 'tasks.html';
         }
     } catch (error) {
-        alert(error.message);
+        console.log(error.message);
     }
 });
 
 document.getElementById('logoutButton')?.addEventListener('click', () => {
     logout();
-    alert('Вы вышли из системы.');
+    console.log('Вы вышли из системы.');
     window.location.href = 'index.html';
 });
 
